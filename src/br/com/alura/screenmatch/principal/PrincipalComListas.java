@@ -5,6 +5,8 @@ import br.com.alura.screenmatch.modelos.Series;
 import br.com.alura.screenmatch.modelos.Titulo;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 public class PrincipalComListas {
     public static void main(String[] args) {
@@ -38,10 +40,25 @@ public class PrincipalComListas {
                                                                                    // não é uma cópia do objeto.
                                                                                    //E sim só mudando a forma que o referêncio no código.
                 System.out.println("Classificação " + filme.getClassificacao());
-
             }
-
-
         }
+
+        ArrayList<String> buscadorPorArtistas = new ArrayList<>();
+        buscadorPorArtistas.add("Adam Sandler");
+        buscadorPorArtistas.add("Paulo");
+        buscadorPorArtistas.add("Jaqueline");
+        buscadorPorArtistas.add("Endriw");
+        System.out.println(buscadorPorArtistas);
+        //Nessa lista se eu quiser ordenar essa lista em ordem alfabética, usamos a função collections.sort() colocando o objeto como parametro.
+        System.out.println("Depois da ordenação");
+        Collections.sort(buscadorPorArtistas);
+        System.out.println(buscadorPorArtistas);
+        // Para eu fazer a ordenação dos nomes dos filmes e series, tive que usar o método CompareTo e implementar
+        // na classe Titulo Comparable<Titulo> para fazer a comparação de string e imprimir a lsita ordenada com Collections.sort()
+        System.out.println("Lista de titulos ordenados");
+        Collections.sort(lista);
+        System.out.println(lista);
+
+
     }
 }
