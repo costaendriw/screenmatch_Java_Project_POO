@@ -4,9 +4,8 @@ import br.com.alura.screenmatch.modelos.Filme;
 import br.com.alura.screenmatch.modelos.Series;
 import br.com.alura.screenmatch.modelos.Titulo;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
+import java.util.*;
+
 
 public class PrincipalComListas {
     public static void main(String[] args) {
@@ -18,7 +17,7 @@ public class PrincipalComListas {
         filmeDoEndriw.avalia(10);
         Series serie = new Series("La Casa de Papel", 2017);
 
-        ArrayList<Titulo> lista = new ArrayList<>();
+        List<Titulo> lista = new LinkedList<>();
         lista.add(filmeDoEndriw);
         lista.add(favorito);
         lista.add(outro);
@@ -57,6 +56,19 @@ public class PrincipalComListas {
         // na classe Titulo Comparable<Titulo> para fazer a comparação de string e imprimir a lsita ordenada com Collections.sort()
         System.out.println("Lista de titulos ordenados");
         Collections.sort(lista);
+        System.out.println(lista);
+        // Comparator (que vem de comparador) tem a finalidade de fazer comparacão entre strings da mesma lista existente, sem precisar refazer o
+        //método compareTo
+
+        lista.sort(Comparator.comparing(Titulo::getAnoDeLancamento));
+        // Essa é uma sintaxe bem diferente, usando o (::). Diferente do ponto (.), que seria uma invocação de método,
+        // esse par de dois pontos serve para referenciar métodos, trabalhar com lambdas, gerar um mecanismo que atribuo a uma interface, entre outras funções.
+        // Tem várias coisas acontecendo nessa linha, pois estamos a maneira mais moderna de se ordenar em Java.
+        //Estamos usando o .sort() a partir da lista e pedindo para o Comparator, que é uma interface, chamar o método estático comparing().
+        // Em seguida, ao invés de passarmos um ano de lançamento,
+        // estamos sinalizando que para todo Titulo recebido o getAnoDeLancamento deve ser usado como critério de comparação.
+
+        System.out.println("Ordenando por ano");
         System.out.println(lista);
 
 
